@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Pedro Raccoon Plymouth
+Description=Pedro Raccoon Meme Plymouth
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/pedro-raccoon
+ScriptFile=/usr/share/plymouth/themes/pedro-raccoon/pedro-raccoon.script
