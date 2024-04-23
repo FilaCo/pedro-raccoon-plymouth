@@ -1,31 +1,27 @@
+// Init screen
+screen.w = Window.GetWidth();
+screen.h = Window.GetHeight();
+screen.half.w = screen.w / 2;
+screen.half.h = screen.h / 2;
 
 // Init animation
-animation.images_count = 198;
+images_count = 198;
 
-for (i = 1; i < animation.images_count; ++i) {
-    animation.images[i] = Image("animation-" + i + ".png");
+for (i = 0; i < images_count; ++i) {
+    images[i] = Image("animation-" + (i + 1) + ".png");
 }
 
-// Animation starts before render, so lets start somewhere in the end
-animation.cur_idx = 170;
-animation.cur_sprite = Sprite();
+cur_sprite = Sprite();
+cur_sprite.SetX(screen.half.w - images[0].GetWidth() / 2);
+cur_sprite.SetY(screen.half.h - images[0].GetHeight() / 2);
 
-// Frames past
-frames = 0;
+// Timestamp of progress
+ts = 0;
 
 fun update() {
-    frames++;
+    cur_sprite.SetImage(images[Math.Int(ts / 1.6) % images_count]);
 
-    if (frames % 2 == 0) {
-        return;
-    }
-
-    animation.cur_sprite.SetImage(animation.images[animation.cur_idx]);
-    animation.cur_sprite.SetPosition(Window.GetWidth() / 2 - animation.cur_sprite.GetImage().GetWidth() / 2, Window.GetHeight() / 2 - animation.cur_sprite.GetImage().GetHeight() / 2, 0);
-    animation.cur_sprite.SetOpacity(1);
-
-    animation.cur_idx++;
-    animation.cur_idx %= animation.images_count;    
+    ts++;   
 }
 
 Plymouth.SetRefreshFunction(update);
