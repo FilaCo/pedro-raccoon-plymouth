@@ -1,4 +1,4 @@
 # Pedro Raccoon Plymouth
-This is simple Pedro racoon meme Plymouth theme.
+This is a simple Plymouth theme with Pedro racoon meme.
 
 ![Pedro racoon meme](pedro-raccoon.gif)
